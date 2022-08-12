@@ -14,7 +14,7 @@ app
   .post((req, res) => {
     const newNote = req.body;
     newNote.id = uuidv4();
-    fs.readFile("./db/db.json", "utf8", async (err, data) => {
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
       let parsedData = JSON.parse(data);
       parsedData.push(newNote);
       fs.writeFile("./db/db.json", JSON.stringify(parsedData), (err) => {
@@ -28,7 +28,7 @@ app
     });
   });
 app.route("/:id").delete((req, res) => {
-  fs.readFile("./db/db.json", "utf8", async (err, data) => {
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
     let parsedData = JSON.parse(data);
     parsedData = parsedData.filter((note) => note.id !== req.params.id);
     fs.writeFile("./db/db.json", JSON.stringify(parsedData), (err) => {
