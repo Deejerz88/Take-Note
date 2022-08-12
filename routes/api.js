@@ -1,8 +1,7 @@
 const express = require('express');
+const apiNotesRouter = require('./apiNotes');
+const app = express();
 
-const notesRouter = express.router()
+app.use('/notes', apiNotesRouter)
 
-notesRouter.get('/', (req, res) => { 
-  console.log(`${req.method} request for ${req.url}`);
-  
-})
+module.exports = app;
