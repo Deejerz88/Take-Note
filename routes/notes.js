@@ -12,7 +12,6 @@ app
     });
   })
   .post((req, res) => {
-    console.log(req.body);
     const newNote = req.body;
     newNote.id = uuidv4();
     fs.readFile("./db/db.json", "utf8", async (err, data) => {
@@ -30,10 +29,8 @@ app
   });
 app.route("/:id").delete((req, res) => {
   fs.readFile("./db/db.json", "utf8", async (err, data) => {
-    console.log(req.params.id);
     let parsedData = JSON.parse(data);
     parsedData = parsedData.filter((note) => note.id !== req.params.id);
-    console.log({ parsedData });
     fs.writeFile("./db/db.json", JSON.stringify(parsedData), (err) => {
       if (err) {
         console.error(err);
