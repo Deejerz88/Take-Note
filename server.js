@@ -9,7 +9,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.use("/api", api);
-app.use("/notes", notesRouter);
+app.use("/notes", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/notes.html"));
+});
 app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
