@@ -17,9 +17,6 @@ A note-taking web app. Store, retrieve, and delete notes from anywhere!
     - [Delete Note](#delete-note)
   - [Questions](#questions)
   
-## Link
-  - [Live App](https://take-note-1.herokuapp.com/notes)
-
 ## Usage
 
 To use this appliction: 
